@@ -9,6 +9,9 @@ int main(){
 	double sum = 0;
 	string unit;
 	
+	vector<double> szamok;
+	bool first = true;
+	
 	/*
 	cin >> num;
 	sm=num;
@@ -23,13 +26,18 @@ int main(){
 		else{
 			 cout << "illegal input\n";
 			 continue;
-		 }
-		 
-		if(sm == null) sm = num;
-		else if(lg == null) lg = num;
-		else if(num > lg) lg = num;
+		}
+		
+		if(first){
+			lg=num;
+			sm=num;
+			first=!first;
+		}
+		if(num > lg) lg = num;
 		else if(num < sm) sm = num;
 		sum+=num;
+		
+		szamok.push_back(num);
 		
 		/*
 		cout << num;
@@ -44,5 +52,10 @@ int main(){
 		}
 		else cout << "\n";
 		*/
+	}
+	sort(szamok);
+	cout << "Sorted values in meters\n";
+	for(int i = 0; i < szamok.size(); ++i){
+		cout << szamok[i] << "\n";
 	}
 }
