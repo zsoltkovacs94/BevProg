@@ -54,7 +54,7 @@ int main(){
 	}
 	ost.close();
 	ist.open("mydata.txt",ios_base::in);
-	if (!ist) error("can't open output file ","mydata.txt");
+	if (!ist) error("can't open input file ","mydata.txt");
 	vector<Point> processed_points;
 	for (Point p; ist >> p; )
 		processed_points.push_back(p);
@@ -64,7 +64,7 @@ int main(){
 	}
 	for (int i = 0; i < processed_points.size(); i++)
 	{
-		if(original_points[i].get_x() != original_points[i].get_x() || original_points[i].get_y() != original_points[i].get_y()){
+		if(processed_points[i].get_x() != original_points[i].get_x() || processed_points[i].get_y() != original_points[i].get_y()){
 			cout << "Something's wrong! \n";
 			return 0;	
 		}
